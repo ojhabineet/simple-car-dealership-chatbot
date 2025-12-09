@@ -1,0 +1,32 @@
+version: "3.1"
+
+stories:
+- story: happy path delivery booking
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: select_car
+    - action: utter_ask_color
+    - intent: select_color
+    - action: utter_ask_delivery_date
+    - intent: select_date
+    - action: action_select_delivery
+    - intent: confirm_delivery
+    - action: utter_confirm_delivery
+
+- story: reschedule delivery
+  steps:
+    - intent: reschedule_delivery
+    - action: utter_reschedule
+    - intent: select_date
+    - action: action_reschedule_delivery
+
+- story: check delivery status
+  steps:
+    - intent: check_status
+    - action: action_check_status
+
+- story: say goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye

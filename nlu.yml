@@ -1,0 +1,78 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good evening
+
+- intent: goodbye
+  examples: |
+    - bye
+    - see you later
+    - goodbye
+
+- intent: thank
+  examples: |
+    - thanks
+    - thank you
+    - appreciate it
+
+- intent: inquire_models
+  examples: |
+    - what cars are available
+    - show me Mahindra models
+    - which Mahindra cars do you sell
+
+- intent: inquire_price
+  examples: |
+    - what is the price of XUV700
+    - how much does Thar cost
+    - tell me price details
+
+- intent: select_car
+  examples: |
+    - I want to buy XUV700
+    - I like the Thar
+    - Book a Scorpio-N for me
+    - I want Bolero
+
+- intent: select_color
+  examples: |
+    - I want black color
+    - red color please
+    - white Thar
+    - silver Scorpio
+
+- intent: select_date
+  examples: |
+    - deliver it on 10th November
+    - I want delivery next week
+    - delivery date is 15th December
+
+- intent: confirm_delivery
+  examples: |
+    - confirm my booking
+    - yes, that’s perfect
+    - schedule delivery
+
+- intent: reschedule_delivery
+  examples: |
+    - I want to change my delivery date
+    - reschedule it
+    - postpone the delivery
+
+- intent: check_status
+  examples: |
+    - what’s the status of my delivery
+    - is my car ready
+    - track my order
+
+- intent: out_of_scope
+  examples: |
+    - tell me a joke
+    - who is the prime minister
+    - what's the weather

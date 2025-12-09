@@ -1,0 +1,101 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - thank
+  - inquire_models
+  - inquire_price
+  - select_car
+  - select_color
+  - select_date
+  - confirm_delivery
+  - reschedule_delivery
+  - check_status
+  - out_of_scope
+
+entities:
+  - car_model
+  - color
+  - delivery_date
+  - name
+
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_text
+
+  car_model:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: car_model
+      - type: from_text
+
+  color:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: color
+      - type: from_text
+
+  delivery_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: delivery_date
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Hello! Welcome to Mahindra Motors 🚗. How can I assist you today?"
+    - text: "Hi there! Ready to explore our Mahindra vehicles?"
+
+  utter_goodbye:
+    - text: "Thank you for visiting Mahindra Motors. Have a great day!"
+    - text: "Goodbye! See you soon at our showroom."
+
+  utter_thank:
+    - text: "You're most welcome! 😊"
+
+  utter_inquire_models:
+    - text: "We have these Mahindra models available: Thar, XUV700, Scorpio-N, and Bolero."
+
+  utter_inquire_price:
+    - text: "Our price range starts from ₹9.8L for Bolero to ₹25L for XUV700 (ex-showroom)."
+
+  utter_ask_color:
+    - text: "Please choose your color: Red, Black, White, or Silver."
+
+  utter_ask_delivery_date:
+    - text: "When would you like to schedule your vehicle delivery?"
+
+  utter_confirm_delivery:
+    - text: "Thanks {name}! Your {color} {car_model} is scheduled for delivery on {delivery_date}."
+
+  utter_reschedule:
+    - text: "Sure, please tell me your preferred new delivery date."
+
+  utter_check_status:
+    - text: "Your {car_model} is currently being prepared for delivery. Estimated delivery: {delivery_date}."
+
+  utter_out_of_scope:
+    - text: "Sorry, I can only help with Mahindra car inquiries and deliveries."
+
+actions:
+  - action_select_delivery
+  - action_reschedule_delivery
+  - action_check_status
+
+forms:
+  delivery_form:
+    required_slots:
+      - name
+      - car_model
+      - color
+      - delivery_date
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
